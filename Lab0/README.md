@@ -113,7 +113,7 @@ Windows 10 => WSL2 with Ubuntu 20.04 (virtualization software) => Docker (virtua
     ```bash
     dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
     ```
-    Set WSL 2 as the default version for future WSL installations
+    Set WSL2 as the default version for future WSL installations
     ```bash
     * wsl --set-default-version 2
     ```
@@ -125,10 +125,30 @@ Windows 10 => WSL2 with Ubuntu 20.04 (virtualization software) => Docker (virtua
     ```bash
     wsl
     ```
-2. Follow the "PC with Ubuntu 20.04 and later" instructions. All commands should be executed from WSL 2 environment
+2. Follow instructions from "PC with Ubuntu 20.04 and later". All commands should be executed from WSL2 environment
 
 # Mac laptops
+1. Installing Docker
+    * Macs with Apple chips should follow the official Docker Desktop installation [instructions](https://docs.docker.com/desktop/install/mac-install/)
+    * Macs with Intel chips can use the official instructions or the instructions for only Docker engine installation   
+2. Follow instructions from "PC with Ubuntu 20.04 and later". All commands should be executed from the terminal
 
+# Installation test
+1. Start Docker container using image that you built (`tb3_image`).
+2. Verify that ROS2 environmental variables are set
+```bash
+    env | grep ROS
+```
+3. Verify that graphics output is working (you should see a popup window with rotating gears)
+```bash
+    glxgears
+```
+4. Verify that Gazebo is installed (you should see empty Gazebo environment)
+```bash
+    ign gazebo empty.sdf
+```
 
+# IDE installation (optional)
+Install your IDE of choice, e.g. [VS Code](https://code.visualstudio.com/download)
 
     
