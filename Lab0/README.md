@@ -1,0 +1,1 @@
+the goal of this lab is to install ROS2 Humble.
