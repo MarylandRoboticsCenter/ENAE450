@@ -1,5 +1,5 @@
-FROM osrf/ros:humble-desktop
-# FROM osrf/ros:humble-desktop-full
+FROM osrf/ros:humble-desktop-full
+# FROM osrf/ros:humble-desktop
 
 # Set default shell
 SHELL ["/bin/bash", "-c"]
@@ -68,7 +68,7 @@ RUN sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo '$TZ' | sudo tee
 # Install ROS packages
 RUN sudo apt-get update && sudo apt-get install -y \
     ros-dev-tools \
-    python-is-python3 \
+    python-is-python3 && \
     sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
 # Setup ROS workspace directory
