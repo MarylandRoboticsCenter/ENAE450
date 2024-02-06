@@ -151,4 +151,16 @@ Windows 10 => WSL2 with Ubuntu 20.04 (virtualization software) => Docker (virtua
 # IDE installation (optional)
 Install your IDE of choice, e.g. [VS Code](https://code.visualstudio.com/download)
 
-    
+# Troubleshooting (Windows PC)
+1. Issues with connecting to Docker daemon but `docker version` works properly. Try starting docker service manually, in the WSL2 terminal run
+```bash
+sudo service docker start
+```
+If it works, you'll have to run this command every time you launch WSL2 terminal. There is a workaround that we can discuss deparately.
+2. When launching GUI apps in docker, it throws an error because it cannot access DISPLAY variable.
+    * If running Windows 10 make sure the OS build version is above 19044. If not, run the system update.
+    * In the Powershell run
+    ```bash
+    wsl --update
+    ```
+    * If the issue persists, check if you have the GPU drivers installed, see [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps)
