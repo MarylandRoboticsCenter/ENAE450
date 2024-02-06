@@ -153,10 +153,11 @@ Install your IDE of choice, e.g. [VS Code](https://code.visualstudio.com/downloa
 
 # Troubleshooting (Windows PC)
 1. Issues with connecting to Docker daemon but `docker version` works properly. Try starting docker service manually, in the WSL2 terminal run
-```bash
-sudo service docker start
-```
-If it works, you'll have to run this command every time you launch WSL2 terminal. There is a workaround that we can discuss deparately.
+    ```bash
+    sudo service docker start
+    ```
+    If it works, you'll have to run this command every time you launch WSL2 terminal. There is a workaround that we can discuss deparately.
+
 2. When launching GUI apps in docker, it throws an error because it cannot access DISPLAY variable.
     * If running Windows 10 make sure the OS build version is above 19044. If not, run the system update.
     * In the Powershell run
