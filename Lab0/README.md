@@ -95,7 +95,7 @@ It doesn't matter if you launching Ubuntu using dual booting, or single booting,
     ```
     * If you **don't** have Nvidia GPU, run the following command
     ```bash
-    docker run -it --rm --name TB3Container --net=host --ipc=host --pid=host --gpus=all --privileged \
+    docker run -it --rm --name TB3Container --net=host --ipc=host --pid=host --privileged \
     --env="DISPLAY=$DISPLAY" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     tb3_image:latest
