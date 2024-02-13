@@ -165,3 +165,16 @@ Install your IDE of choice, e.g. [VS Code](https://code.visualstudio.com/downloa
     wsl --update
     ```
     * If the issue persists, check if you have the GPU drivers installed, see [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps)
+
+# Suggestion (Windows PC)
+1. Remove path to windows binaries in WSL2
+    * Edit /etc/wsl.conf, e.g.
+    ```bash
+        sudo nano /etc/wsl.conf
+    ```
+    * Add the following to the file
+    ```bash
+        [interop]
+        appendWindowsPath = false
+    ```
+    * Restart WSL
