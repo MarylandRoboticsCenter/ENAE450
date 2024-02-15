@@ -53,6 +53,7 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends --all
     libx11-dev \
     mc \
     mesa-utils \
+    nano \
     tmux \
     tzdata \
     xclip \
@@ -68,8 +69,11 @@ RUN sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo '$TZ' | sudo tee
 # Install ROS packages
 RUN sudo apt-get update && sudo apt-get install -y \
     ros-dev-tools \
-    python-is-python3 && \
+    python-is-python3 \
+    python3-pip && \
     sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install setuptools==58.2.0
 
 # Setup ROS workspace directory
 RUN source /opt/ros/humble/setup.bash && \
@@ -78,6 +82,8 @@ RUN source /opt/ros/humble/setup.bash && \
 # Set up working directory and bashrc
 WORKDIR ${HOME}/catkin_ws/
 RUN echo 'source /opt/ros/humble/setup.bash' >> $HOME/.bashrc && \
+    echo 'source /usr/share/colcon_cd/function/colcon_cd.sh' >> $HOME/.bashrc && \
+    echo 'source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash' >> $HOME/.bashrc && \
     echo 'export ROS_DOMAIN_ID=1' >> ~/.bashrc
     
 CMD /bin/bash
