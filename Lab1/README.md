@@ -7,7 +7,6 @@
     docker run -it --rm --name TB3Container --net=host --ipc=host --pid=host --gpus=all --runtime=nvidia --privileged \
     --env="DISPLAY=$DISPLAY" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    --volume="$PWD:/home/${USER}\catkin_ws\src" \
+    --volume="$PWD:/home/${USER}/catkin_ws/src" \
     tb3_image:latest
     ```
-    
