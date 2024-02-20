@@ -167,11 +167,44 @@ Install your IDE of choice, e.g. [VS Code](https://code.visualstudio.com/downloa
     * If the issue persists, check if you have the GPU drivers installed, see [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps)
 
 # Installation steps without Docker (Ubuntu 22.04)
-1. Install supplementary packages
+1. Make sure your system is up to date
+    ```bash
+    sudo apt-get update
+    sudo apt-get dist-upgrade
+    ```
+
+2. Install supplementary packages
     ```bash
     sudo apt-get update
     sudo apt-get install -y build-essential curl git make cmake iproute2 iputils-ping mc mesa-utils nano tmux 
     ```
+
+3. Install ROS2 Humble 
+
+    Follow official instructions from [here](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+
+3. Install supplementary ROS packages
+    ```bash
+    sudo apt-get install -y ros-dev-tools python-is-python3 python3-pip
+    ```
+
+4. Fix python `setuptools` package
+    ```bash
+    pip3 install setuptools==58.2.0
+    ```
+
+5. Source your ROS2 installation and `colcon` autocomplete
+    ```bash
+    echo 'source /opt/ros/humble/setup.bash' >> $HOME/.bashrc
+    echo 'source /usr/share/colcon_cd/function/colcon_cd.sh' >> $HOME/.bashrc
+    echo 'source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash' >> $HOME/.bashrc
+    echo 'export ROS_DOMAIN_ID=1' >> ~/.bashrc
+    ```
+
+4. (Optionally) Download tmux config file
+    ```bash
+    wget https://raw.githubusercontent.com/kanishkaganguly/dotfiles/master/tmux/.tmux.bash.conf -O $HOME/.tmux.conf
+    ```    
 
 # Suggestion (Windows PC)
 1. Remove path to windows binaries in WSL2

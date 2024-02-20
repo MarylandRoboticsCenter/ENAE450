@@ -61,7 +61,7 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends --all
     sudo rm -rf /var/lib/apt/lists/*
 
 # Setup tmux config
-ADD --chown=${USER}:${USER} https://raw.githubusercontent.com/kanishkaganguly/dotfiles/master/tmux/.tmux.bash.conf $HOME/.tmux.conf
+ADD --chown=${USER}:${USER} https://raw.githubusercontent.com/MarylandRoboticsCenter/ENAE450/main/misc/.tmux.conf $HOME/.tmux.conf
 
 # Set datetime and timezone correctly
 RUN sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo '$TZ' | sudo tee -a /etc/timezone
