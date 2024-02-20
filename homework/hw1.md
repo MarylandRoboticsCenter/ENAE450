@@ -1,11 +1,13 @@
-2. Python Only: Merge sorting (5 points)
+Due date: EOD Thursday, Feb 29
+
+1. Python Only: Merge sorting (5 points)
     1. Generate two random unsorted lists of 50 non-negative integers, with the highest integer value of 1000. In other words, your integers will range from 0 to 1000.
     2. Merge the lists and sort the result
     3. The output should be the following:
         1. Tlwo original lists
         2. Merged and sortyed list
 
-1. Python Only: Binary Search (10 points)
+2. Python Only: Binary Search (10 points)
     1. A binary search takes in a sorted list (as an array), then continually compares a search value with the middle of the array. Depending on whether the search value is less than or greater than the middle value, the list is split (divide and conquer) to reduce the search space. The program returns TRUE if the search value is in the list, and FALSE if the search value is not in the list.
     2. Write a program that generates a random unsorted list of 101 non-negative integers, with the highest integer value of 1000. In other words, your integers will range from 0 to 1000.
         1. Sort this list. You may use existing python sorting methods.
