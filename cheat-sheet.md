@@ -28,13 +28,17 @@
 
 1. Terminal
 
+    * `<Tab> <Tab>` - **autocomplete**
     * `sudo apt-get update`
     * `sudo apt-get upgrade`
-    * `cd` 
-    * `mkdir`
+    * `cd <dir_name>` 
+    * `mkdir <dir_name>`
     * `ls -al`
     * `mc`
     * `env | grep ROS`
+    * `cat <file_name>`
+    * `touch <file_name>`
+    * `chmod u+x <file_name>`
 
 2. Docker
     
@@ -66,6 +70,7 @@
 
 3. ROS2 
   
+    * `<Tab> <Tab>` - **autocomplete**
     * `ros2 pkg create --build-type ament_python <package-name>`
     * `ros2 pkg list`
     * `colcon build --symlink-install`
