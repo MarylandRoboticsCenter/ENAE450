@@ -12,11 +12,13 @@
 * [ROS2 API](https://docs.ros.org/en/humble/API-Docs.html)
 * [Git](https://git-scm.com/docs/user-manual)
 * Linux [terminal](https://linuxcommand.org/lc3_learning_the_shell.php), [cheat sheet](https://cheatography.com/davechild/cheat-sheets/linux-command-line/)
-* Linux file manager ([Midnight Commander](https://linuxcommand.org/lc3_adv_mc.php)
-)
+* Linux file manager ([Midnight Commander](https://linuxcommand.org/lc3_adv_mc.php))
 * Tmux [cheat sheet](https://tmuxcheatsheet.com/)
 
+# ROS2 books
 
+* A Gentle Introduction to ROS by Jason M. O’Kane, [link](https://cse.sc.edu/~jokane/agitr/)
+* ROS Robot Programming, [link](https://www.robotis.us/ros-robot-programming-book-digital-copy/)
 
 # ROS2 concepts
 
