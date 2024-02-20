@@ -56,15 +56,23 @@
         --volume="$PWD:/home/${USER}/catkin_ws/src" \
         tb3_image:latest
     ```    
+3. Git
+
+    * `git clone`
+    * `git fetch`
+    * `git status`
+    * `git pull`
+    * `git stash`
+
 3. ROS2 
   
-    * ros2 pkg create --build-type ament_python <package-name>
-    * ros2 pkg list
-    * colcon build --symlink-install
-    * source ./install/setup.bash
-    * ros2 node list
-    * ros2 topic list
-    * ros2 topic echo <topic name>
+    * `ros2 pkg create --build-type ament_python <package-name>`
+    * `ros2 pkg list`
+    * `colcon build --symlink-install`
+    * `source ./install/setup.bash`
+    * `ros2 node list`
+    * `ros2 topic list`
+    * `ros2 topic echo <topic name>`
 
 
 
