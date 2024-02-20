@@ -77,12 +77,12 @@ It doesn't matter if you launching Ubuntu using dual booting, or single booting,
     * Run the following command (make sure to include "." in the last line)
     ```bash
     DOCKER_BUILDKIT=1 docker build --build-arg USER=$USER \
-             --build-arg UID=$(id -u) \
-             --build-arg GID=$(id -g) \
-             --build-arg PW=docker \
-             -t tb3_image \
-             -f humble_dockerfile.Dockerfile\
-             .
+        --build-arg UID=$(id -u) \
+        --build-arg GID=$(id -g) \
+        --build-arg PW=docker \
+        -t tb3_image \
+        -f humble_dockerfile.Dockerfile\
+        .
     ```
     * For the class purposes I used the abridged version of the docker image (see first line of the Docker file). Outside of the class please delete the first line and uncomment the second line (FROM osrf/ros:humble-desktop-full)
 4. Running Docker container
