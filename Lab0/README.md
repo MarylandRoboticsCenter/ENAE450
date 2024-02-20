@@ -166,6 +166,13 @@ Install your IDE of choice, e.g. [VS Code](https://code.visualstudio.com/downloa
     ```
     * If the issue persists, check if you have the GPU drivers installed, see [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps)
 
+# Installation steps without Docker (Ubuntu 22.04)
+1. Install supplementary packages
+    ```bash
+    sudo apt-get update
+    sudo apt-get install -y build-essential curl git make cmake iproute2 iputils-ping mc mesa-utils nano tmux 
+    ```
+
 # Suggestion (Windows PC)
 1. Remove path to windows binaries in WSL2
     * Edit /etc/wsl.conf, e.g.
