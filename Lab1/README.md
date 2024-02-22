@@ -50,8 +50,9 @@ The goal of this lab is to run a simple ROS2 code.
         -f humble_dockerfile.Dockerfile\
         .
     ```
-5. **For students who use Docker only** Launch Docker container that is based on the `tb3_image` image and volume map the `Lab1/src` directory in the host pc to the `src` directory in the docker container.
-    * Navigate into the `ENAE450/Lab1/src` folder
+
+5. **For students who use Docker only** Launch Docker container that is based on the `tb3_image` image and volume map the `ENAE450_ws/src` directory in the host pc to the `catkin_ws/src` directory in the docker container.
+    * **IMPORTANT!** Navigate into the `ENAE450/ENAE450_ws/src` folder
     * **For PCs with Nvidia GPU** Launch Docker container:
         ```bash
         docker run -it --rm --name TB3Container --net=host --ipc=host --pid=host --gpus=all --runtime=nvidia --privileged \
@@ -69,12 +70,14 @@ The goal of this lab is to run a simple ROS2 code.
             tb3_image:latest
         ```        
 
-3. Navigate into the `src` folder
-4. **This step is not needed for people who don't run Docker.** Now, you will create a docker container based on the `tb3_image` image which you built earlier and volume map the `src` directory in the host pc to the `src` directory in the docker container. To do that, enter the version of the following command that works for you (make sure that you are in the `../src`` directory inside the terminal before running this command):
+6. Navigate into the workspace folder (it contains the `src` folder) and run `colcon` script:
     ```bash
-    docker run -it --rm --name TB3Container --net=host --ipc=host --pid=host --gpus=all --runtime=nvidia --privileged \
-        --env="DISPLAY=$DISPLAY" \
-        --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-        --volume="$PWD:/home/${USER}/catkin_ws/src" \
-        tb3_image:latest
+    colcon build --symlink-install
     ```
+7. Navigate into the `src` folder and create *Lab1* package:
+    ```bash
+    ros2 pkg create --build-type ament_python Lab1_package
+    ```    
+
+
+
