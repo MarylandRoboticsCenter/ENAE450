@@ -24,18 +24,51 @@ The goal of this lab is to run a simple ROS2 code.
 
     **For Mac Laptops**
     * Start *VMware Fusion*
-    * Start Ubuntu Virtual opens terminal window
+    * Start Ubuntu Virtual Machine
     * Open terminal window, depending on your setup `Ctrl + Alt + T` shortcut might do it
     * Navigate using `cd` command
 
-3. Clone the repository for this lab:
+3. Clone the repository for this class if you haven't done it yet:
 
     ```bash
-    git clone https://github.com/MarylandRoboticsCenter/ENAE450/tree/main/Lab1
+    git clone https://github.com/MarylandRoboticsCenter/ENAE450
+    ```
+    If you already cloned the repository, make sure all updates are pulled:
+
+    ```bash
+    cd ENAE450
+    git pull
     ```
 
-2. Create a workspace folder, e.g. `ENAE450_ws` in your filesystem (not in docker container)
-2. Create `src` folder in the workspace folder
+4. **For students who use Docker only** Periodically confirm that your Docker image is up to date. Navigate into the `ENAE450/Lab0` folder and rebuild the image:
+    ```bash
+    DOCKER_BUILDKIT=1 docker build --build-arg USER=$USER \
+        --build-arg UID=$(id -u) \
+        --build-arg GID=$(id -g) \
+        --build-arg PW=docker \
+        -t tb3_image \
+        -f humble_dockerfile.Dockerfile\
+        .
+    ```
+5. **For students who use Docker only** Launch Docker container that is based on the `tb3_image` image and volume map the `Lab1/src` directory in the host pc to the `src` directory in the docker container.
+    * Navigate into the `ENAE450/Lab1/src` folder
+    * **For PCs with Nvidia GPU** Launch Docker container:
+        ```bash
+        docker run -it --rm --name TB3Container --net=host --ipc=host --pid=host --gpus=all --runtime=nvidia --privileged \
+            --env="DISPLAY=$DISPLAY" \
+            --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+            --volume="$PWD:/home/${USER}/catkin_ws/src" \
+            tb3_image:latest
+        ```
+    * **For PCs without GPU acceleration** Launch Docker container:
+        ```bash
+        docker run -it --rm --name TB3Container --net=host --ipc=host --pid=host --privileged \
+            --env="DISPLAY=$DISPLAY" \
+            --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+            --volume="$PWD:/home/${USER}/catkin_ws/src" \
+            tb3_image:latest
+        ```        
+
 3. Navigate into the `src` folder
 4. **This step is not needed for people who don't run Docker.** Now, you will create a docker container based on the `tb3_image` image which you built earlier and volume map the `src` directory in the host pc to the `src` directory in the docker container. To do that, enter the version of the following command that works for you (make sure that you are in the `../src`` directory inside the terminal before running this command):
     ```bash
