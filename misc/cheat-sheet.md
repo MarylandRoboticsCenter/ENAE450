@@ -83,6 +83,24 @@
     * `ros2 topic list`
     * `ros2 topic echo <topic name>`
 
+# ROS2 workflow
+
+1. New package
+    * create workspace (if not created)
+    * create package
+    * edit package metadata
+    * write code (divide into nodes)
+    * build package
+    * source package
+    * start node(s)
+
+2. Existing package
+    * edit code
+    * edit package metadata if needed
+    * build package
+    * source package
+    * start node(s)
+
 # Shortcuts
 
 1. Terminal
