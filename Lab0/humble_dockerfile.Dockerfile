@@ -77,10 +77,10 @@ RUN pip3 install setuptools==58.2.0
 
 # Setup ROS workspace directory
 RUN source /opt/ros/humble/setup.bash && \
-    mkdir -p $HOME/catkin_ws/src
+    mkdir -p $HOME/ENAE450_ws/src
 
 # Set up working directory and bashrc
-WORKDIR ${HOME}/catkin_ws/
+WORKDIR ${HOME}/ENAE450_ws/
 RUN echo 'source /opt/ros/humble/setup.bash' >> $HOME/.bashrc && \
     echo 'source /usr/share/colcon_cd/function/colcon_cd.sh' >> $HOME/.bashrc && \
     echo 'source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash' >> $HOME/.bashrc && \
