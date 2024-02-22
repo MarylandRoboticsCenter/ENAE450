@@ -1,4 +1,9 @@
+# General overview
+
+The goal of this lab is to run simple ROS2 code.
+
 # Workflow with Docker and ROS2
+
 1. Create a workspace folder, e.g. `ENAE450_ws` in your filesystem (not in docker container)
 2. Create `src` folder in the workspace folder
 3. Navigate into the `src` folder

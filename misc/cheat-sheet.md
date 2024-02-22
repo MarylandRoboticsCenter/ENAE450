@@ -83,6 +83,25 @@
     * `ros2 topic list`
     * `ros2 topic echo <topic name>`
 
+# Shortcuts
 
+1. Terminal
+
+    * Ctrl-d - close terminal
+    * Ctrl-c - abort running program
+    * Ctrl-r - reverse history search
+
+2. Midnight Commander
+
+    * Ctrl-o - hide panels to show terminal window and reverse
+    * Ctrl+Space - show directory size
+    * F3 - view file using built-in viewer
+    * F4 - edit file using editor of choice
+    * F5 - open copy file/folder dialog
+    * F6 - open move/rename file/folder dialog
+    * F7 - open make folder dialog
+    * F8 - open delete folder dialog
+    * F9 - open pull down menu
+    * F10 - exit MC
 
 
