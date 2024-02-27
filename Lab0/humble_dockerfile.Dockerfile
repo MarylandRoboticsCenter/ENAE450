@@ -84,6 +84,7 @@ WORKDIR ${HOME}/ENAE450_ws/
 RUN echo 'source /opt/ros/humble/setup.bash' >> $HOME/.bashrc && \
     echo 'source /usr/share/colcon_cd/function/colcon_cd.sh' >> $HOME/.bashrc && \
     echo 'source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash' >> $HOME/.bashrc && \
-    echo 'export ROS_DOMAIN_ID=1' >> ~/.bashrc
+    echo 'export ROS_DOMAIN_ID=1' >> ~/.bashrc && \
+    echo 'export ROS_LOCALHOST_ONLY=1' >> ~/.bashrc
     
 CMD /bin/bash
