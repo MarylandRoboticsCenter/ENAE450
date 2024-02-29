@@ -75,13 +75,25 @@
 3. ROS2 
   
     * `<Tab> <Tab>` - **autocomplete**
-    * `ros2 pkg create --build-type ament_python <package-name>`
-    * `ros2 pkg list`
-    * `colcon build --symlink-install`
     * `source ./install/setup.bash`
+    * `colcon build --symlink-install`
+    <br/><br/>
+    * `ros2 pkg create --build-type ament_python <package_name>`
+    * `ros2 pkg list`
+    <br/><br/>
     * `ros2 node list`
+    * `ros2 node info <node_name>`
+    <br/><br/>
     * `ros2 topic list`
-    * `ros2 topic echo <topic name>`
+    * `ros2 topic type <topic_name>`
+    * `ros2 topic echo <topic_name>`
+    * `ros2 interface show <type_name>`
+    * `ros2 service list`
+    * `ros2 service type <service_name>`
+    * `ros2 service call <service_name> <service_type> <arguments>`
+    <br/><br/>
+    * `ros2 run <package_name> <executable_name>`
+    
 
 # ROS2 workflow
 
