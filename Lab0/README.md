@@ -9,12 +9,11 @@ ign gazebo empty.sdf
 ```
 and making sure the proper graphical output is displayed.
 
-This is a simplified schematics of what we are trying to achive:\
-OS => Docker (virtualization software) => Ubuntu 22.04 + ROS2 Humble (container)
-
 **Note:** Just to be clear this is not the only way to install ROS2 Humble. The experienced or adventerous students can install ROS without any virtualization software by following insructions available online (e.g. [link](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)). In this case students are responsible for making sure ROS and the required packages operate properly.
 
 # PC with Ubuntu 20.04 and later
+This is a simplified visualization of what we are trying to achive:\
+OS => Docker (virtualization software) => Ubuntu 22.04 + ROS2 Humble (container)\
 It doesn't matter if you launching Ubuntu using dual booting, or single booting, or using VM software. 
 
 1. Installing Docker using apt repository ([full guide](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository))
