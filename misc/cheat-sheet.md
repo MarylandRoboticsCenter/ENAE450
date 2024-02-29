@@ -109,7 +109,18 @@
     * Ctrl-c - abort running program
     * Ctrl-r - reverse history search
 
-2. Midnight Commander
+2. Tmux
+
+    * Ctrl-d - close window/pane
+    * Ctrl-a, : - open tmux command line
+    * Ctrl-a, c - create window
+    * Ctrl-a, p - previous window
+    * Ctrl-a, b - split the current pane with a vertical line to create a horizontal layout
+    * Ctrl-a, v - split the current with a horizontal line to create a vertical layout
+    * Ctrl-a, <"arrow key"> - move cursor to another pane
+    * Ctrl-a, Ctrl-<"arrow key"> - resize current pane
+
+3. Midnight Commander
 
     * Ctrl-o - hide panels to show terminal window and reverse
     * Ctrl+Space - show directory size

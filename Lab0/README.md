@@ -165,7 +165,7 @@ Windows 10 => WSL2 with Ubuntu 20.04 (virtualization software) => Docker (virtua
     ```bash
     wsl
     ```
-2. Follow instructions from ["PC with Ubuntu 20.04 and later ..."](#pc-with-ubuntu-2004-and-later-installation-steps-with-docker) . All commands should be executed from WSL2 environment
+2. Follow instructions from ["PC with Ubuntu 20.04 and later ..."](#pc-with-ubuntu-2004-and-later-installation-steps-with-docker). All commands should be executed from WSL2 environment
 
 # Mac laptops
 There are some issues with GPU acceleration support for Docker applications running on Mac. Mac users should use VMware Fusion virtualization software instead. This is a simplified visualization of what we are trying to achive:\
