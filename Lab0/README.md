@@ -165,7 +165,7 @@ Windows 10 => WSL2 with Ubuntu 20.04 (virtualization software) => Docker (virtua
     ```bash
     wsl
     ```
-2. Follow instructions from "PC with Ubuntu 20.04 and later, installation steps with Docker". All commands should be executed from WSL2 environment
+2. Follow instructions from ["PC with Ubuntu 20.04 and later ..."](#pc-with-ubuntu-2004-and-later-installation-steps-with-docker) . All commands should be executed from WSL2 environment
 
 # Mac laptops
 There are some issues with GPU acceleration support for Docker applications running on Mac. Mac users should use VMware Fusion virtualization software instead. This is a simplified visualization of what we are trying to achive:\
@@ -177,12 +177,10 @@ Since VMware Fusion can be taxing on resources of Mac laptops, we won't use Dock
     * Download VMware Fusion Tech Preview 2023 as described [here](https://blogs.vmware.com/teamfusion/2023/07/vmware-fusion-2023-tech-preview.html)
 2. Install VMware Fusion 13 (Tech Preview) on your Mac laptop
 3. Download Ubuntu 22.04 desktop image
-    * For older Macs download amd64 image from [here](https://releases.ubuntu.com/jammy/)
+    * For older Macs download **amd64** image from [here](https://releases.ubuntu.com/jammy/)
     * For Macs with M1/M2 chips download **arm64** image from [here](https://cdimage.ubuntu.com/jammy/daily-live/current/)
 4. Use the downloaded Ubuntu image to create a new Virtuale Machine
-5. Start the Virtuale Machine and follow instructions from [qwe](sdfsdf)
-
-"PC with Ubuntu 22.04, installation steps without Docker"
+5. Start the Virtuale Machine and follow instructions from ["PC with Ubuntu 22.04 ..."](#pc-with-ubuntu-2204-installation-steps-without-docker)
 
 # Installation test
 1. Start Docker container using image that you built (`tb3_image`).
@@ -202,7 +200,24 @@ Since VMware Fusion can be taxing on resources of Mac laptops, we won't use Dock
 # IDE installation (optional)
 Install your IDE of choice, e.g. [VS Code](https://code.visualstudio.com/download)
 
-# Troubleshooting (Windows PC)
+# Troubleshooting 
+
+## General
+1. Tmux shortcuts don't work (e.g. when trying to create new panes)
+    * If you are using setup with Docker, make sure that you copied the tmux config file into your home folder
+    ```bash
+    wget https://raw.githubusercontent.com/kanishkaganguly/dotfiles/master/tmux/.tmux.bash.conf -O $HOME/.tmux.conf
+    ```
+    * If you are using setup with Docker, talk to your instructor. Perhaps you are entering the shortcuts incorrectly
+
+2. Problems with listing ROS2 nodes
+    * Restart your ROS2 daemon
+    ```bash
+    ros2 daemon stop
+    ros2 daemon start
+    ```
+
+## Windows PC
 1. Issues with connecting to Docker daemon but `docker version` works properly. Try starting docker service manually, in the WSL2 terminal run
     ```bash
     sudo service docker start
