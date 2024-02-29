@@ -11,7 +11,7 @@ and making sure the proper graphical output is displayed.
 
 **Note:** Just to be clear this is not the only way to install ROS2 Humble. The experienced or adventerous students can install ROS without any virtualization software by following insructions available online (e.g. [link](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)). In this case students are responsible for making sure ROS and the required packages operate properly.
 
-# PC with Ubuntu 20.04 and later
+# PC with Ubuntu 20.04 and later, installation steps with Docker
 This is a simplified visualization of what we are trying to achive:\
 OS => Docker (virtualization software) => Ubuntu 22.04 + ROS2 Humble (container)\
 It doesn't matter if you launching Ubuntu using dual booting, or single booting, or using VM software. 
@@ -99,7 +99,48 @@ It doesn't matter if you launching Ubuntu using dual booting, or single booting,
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     tb3_image:latest
     ```
-# PC with Windows 10 and later
+# PC with Ubuntu 22.04, installation steps without Docker
+1. Make sure your system is up to date
+    ```bash
+    sudo apt-get update
+    sudo apt-get dist-upgrade
+    ```
+
+2. Install supplementary packages
+    ```bash
+    sudo apt-get update
+    sudo apt-get install -y build-essential curl git make cmake iproute2 iputils-ping mc mesa-utils nano tmux 
+    ```
+
+3. Install ROS2 Humble 
+
+    Follow official instructions from [here](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+
+3. Install supplementary ROS packages
+    ```bash
+    sudo apt-get install -y ros-dev-tools python-is-python3 python3-pip
+    ```
+
+4. Fix python `setuptools` package
+    ```bash
+    pip3 install setuptools==58.2.0
+    ```
+
+5. Source your ROS2 installation and `colcon` autocomplete
+    ```bash
+    echo 'source /opt/ros/humble/setup.bash' >> $HOME/.bashrc
+    echo 'source /usr/share/colcon_cd/function/colcon_cd.sh' >> $HOME/.bashrc
+    echo 'source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash' >> $HOME/.bashrc
+    echo 'export ROS_DOMAIN_ID=1' >> ~/.bashrc
+    echo 'export ROS_LOCALHOST_ONLY=1' >> ~/.bashrc
+    ```
+
+4. (Optionally but recommended) Download tmux config file
+    ```bash
+    wget https://raw.githubusercontent.com/kanishkaganguly/dotfiles/master/tmux/.tmux.bash.conf -O $HOME/.tmux.conf
+    ```    
+
+# PC with Windows 10 and later, installation steps with Docker
 On Windows machines our setup will have another virtualization layer but the rest will repeat Ubuntu setup
 Windows 10 => WSL2 with Ubuntu 20.04 (virtualization software) => Docker (virtualization software) => Ubuntu 22.04 + ROS2 Humble (container)
 1. Installing WSL2 (see full guides [1](https://linuxbeast.com/devops/how-to-install-ubuntu-20-04-in-wsl2-on-a-windows-10/), [2](https://learn.microsoft.com/en-us/windows/wsl/install-manual))
@@ -124,21 +165,24 @@ Windows 10 => WSL2 with Ubuntu 20.04 (virtualization software) => Docker (virtua
     ```bash
     wsl
     ```
-2. Follow instructions from "PC with Ubuntu 20.04 and later". All commands should be executed from WSL2 environment
+2. Follow instructions from "PC with Ubuntu 20.04 and later, installation steps with Docker". All commands should be executed from WSL2 environment
 
 # Mac laptops
 There are some issues with GPU acceleration support for Docker applications running on Mac. Mac users should use VMware Fusion virtualization software instead. This is a simplified visualization of what we are trying to achive:\
 Mac OS => VMware Fusion (virtualization software) => Ubuntu 22.04 + ROS2 Humble (container)\
 Since VMware Fusion can be taxing on resources of Mac laptops, we won't use Docker as a middle virtualization layer. Instead 
 
-1. Download VMware Fusion 13
-    * Either: follow UMD Terpware [instructions](https://terpware.umd.edu/Mac/title/4092)
-    * Or: download VMware Fusion Tech Preview 2023 as described [here](https://blogs.vmware.com/teamfusion/2023/07/vmware-fusion-2023-tech-preview.html)
+1. Download VMware Fusion 13. Use *one* of these options:
+    * Follow UMD Terpware [instructions](https://terpware.umd.edu/Mac/title/4092)
+    * Download VMware Fusion Tech Preview 2023 as described [here](https://blogs.vmware.com/teamfusion/2023/07/vmware-fusion-2023-tech-preview.html)
 2. Install VMware Fusion 13 (Tech Preview) on your Mac laptop
-3. 
+3. Download Ubuntu 22.04 desktop image
+    * For older Macs download amd64 image from [here](https://releases.ubuntu.com/jammy/)
+    * For Macs with M1/M2 chips download **arm64** image from [here](https://cdimage.ubuntu.com/jammy/daily-live/current/)
+4. Use the downloaded Ubuntu image to create a new Virtuale Machine
+5. Start the Virtuale Machine and follow instructions from [qwe](sdfsdf)
 
-
-2. Follow instructions from "PC with Ubuntu 20.04 and later". All commands should be executed from the terminal
+"PC with Ubuntu 22.04, installation steps without Docker"
 
 # Installation test
 1. Start Docker container using image that you built (`tb3_image`).
@@ -173,45 +217,6 @@ Install your IDE of choice, e.g. [VS Code](https://code.visualstudio.com/downloa
     ```
     * If the issue persists, check if you have the GPU drivers installed, see [here](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps)
 
-# Installation steps without Docker (Ubuntu 22.04)
-1. Make sure your system is up to date
-    ```bash
-    sudo apt-get update
-    sudo apt-get dist-upgrade
-    ```
-
-2. Install supplementary packages
-    ```bash
-    sudo apt-get update
-    sudo apt-get install -y build-essential curl git make cmake iproute2 iputils-ping mc mesa-utils nano tmux 
-    ```
-
-3. Install ROS2 Humble 
-
-    Follow official instructions from [here](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-
-3. Install supplementary ROS packages
-    ```bash
-    sudo apt-get install -y ros-dev-tools python-is-python3 python3-pip
-    ```
-
-4. Fix python `setuptools` package
-    ```bash
-    pip3 install setuptools==58.2.0
-    ```
-
-5. Source your ROS2 installation and `colcon` autocomplete
-    ```bash
-    echo 'source /opt/ros/humble/setup.bash' >> $HOME/.bashrc
-    echo 'source /usr/share/colcon_cd/function/colcon_cd.sh' >> $HOME/.bashrc
-    echo 'source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash' >> $HOME/.bashrc
-    echo 'export ROS_DOMAIN_ID=1' >> ~/.bashrc
-    ```
-
-4. (Optionally) Download tmux config file
-    ```bash
-    wget https://raw.githubusercontent.com/kanishkaganguly/dotfiles/master/tmux/.tmux.bash.conf -O $HOME/.tmux.conf
-    ```    
 
 # Suggestion (Windows PC)
 1. Remove path to windows binaries in WSL2
