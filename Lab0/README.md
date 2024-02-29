@@ -127,9 +127,17 @@ Windows 10 => WSL2 with Ubuntu 20.04 (virtualization software) => Docker (virtua
 2. Follow instructions from "PC with Ubuntu 20.04 and later". All commands should be executed from WSL2 environment
 
 # Mac laptops
-1. Installing Docker
-    * Macs with Apple chips should follow the official Docker Desktop installation [instructions](https://docs.docker.com/desktop/install/mac-install/)
-    * Macs with Intel chips can use the official instructions or the instructions for only Docker engine installation   
+There are some issues with GPU acceleration support for Docker applications running on Mac. Mac users should use VMware Fusion virtualization software instead. This is a simplified visualization of what we are trying to achive:\
+Mac OS => VMware Fusion (virtualization software) => Ubuntu 22.04 + ROS2 Humble (container)\
+Since VMware Fusion can be taxing on resources of Mac laptops, we won't use Docker as a middle virtualization layer. Instead 
+
+1. Download VMware Fusion 13
+    * Either: follow UMD Terpware [instructions](https://terpware.umd.edu/Mac/title/4092)
+    * Or: download VMware Fusion Tech Preview 2023 as described [here](https://blogs.vmware.com/teamfusion/2023/07/vmware-fusion-2023-tech-preview.html)
+2. Install VMware Fusion 13 (Tech Preview) on your Mac laptop
+3. 
+
+
 2. Follow instructions from "PC with Ubuntu 20.04 and later". All commands should be executed from the terminal
 
 # Installation test
