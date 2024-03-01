@@ -8,7 +8,7 @@ The goal of this lab is to start ROS2 publisher and subscriber nodes.
 
 1. [Understanding topics](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)
 2. [Writing a simple publisher and subscriber (Python)](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)
-3. API docs for Publisher ([old](https://docs.ros2.org/foxy/api/rclpy/api/topics.html#module-rclpy.publisher), [new](https://docs.ros.org/en/iron/p/rclpy/rclpy.publisher.html)), Subscriber ([old](https://docs.ros2.org/foxy/api/rclpy/api/topics.html#module-rclpy.subscription), [new],(https://docs.ros.org/en/iron/p/rclpy/rclpy.subscription.html))
+3. API docs for Publisher ([old](https://docs.ros2.org/foxy/api/rclpy/api/topics.html#module-rclpy.publisher), [new](https://docs.ros.org/en/iron/p/rclpy/rclpy.publisher.html)), Subscriber ([old](https://docs.ros2.org/foxy/api/rclpy/api/topics.html#module-rclpy.subscription), [new](https://docs.ros.org/en/iron/p/rclpy/rclpy.subscription.html))
 4. [Source code for minimal publisher examples](https://github.com/ros2/examples/tree/humble/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher)
 5. [Source code for minimal subscriber examples](https://github.com/ros2/examples/tree/humble/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber)
 
