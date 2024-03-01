@@ -4,6 +4,14 @@
 
 The goal of this lab is to start ROS2 client and server services.
 
+## Useful links
+
+1. [Understanding services](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.html)
+2. [Writing a simple service and client (Python)](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html)
+3. API docs for Service Client ([old](https://docs.ros2.org/foxy/api/rclpy/api/services.html#module-rclpy.client), [new](https://docs.ros.org/en/iron/p/rclpy/rclpy.client.html)), Service Server ([old](https://docs.ros2.org/foxy/api/rclpy/api/services.html#module-rclpy.service), [new],(https://docs.ros.org/en/iron/p/rclpy/rclpy.service.html))
+4. [Source code for minimal service client examples](https://github.com/ros2/examples/tree/humble/rclpy/services/minimal_client/examples_rclpy_minimal_client)
+5. [Source code for minimal service server examples](https://github.com/ros2/examples/tree/humble/rclpy/services/minimal_service/examples_rclpy_minimal_service)
+
 ## Steps
 
 **The commands given in each step below are meant to be entered in the terminal unless stated otherwise**.
