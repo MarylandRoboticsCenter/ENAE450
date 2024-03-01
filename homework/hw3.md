@@ -4,9 +4,6 @@ Note:
 * For an integer you can use the following topic message: UInt32 from std_msgs, i.e.: `from std_msgs.msg import UInt32`
 * For arrays of integers you can use the following topic message: UInt32MultiArray from std_msgs, i.e.: `from std_msgs.msg import UInt32MultiArray`
 
-For arrays of integers you can use the following topic message: UInt32MultiArray from std_msgs
-e.g.: from std_msgs.msg import UInt32MultiArray
-
 1. ROS2 Pub & Sub: Sorting  (10 points)
     1. Publisher node: 
         * With the frequency of 0.5Hz generate two random unsorted lists of 10 non-negative integers, with the highest integer value of 100
