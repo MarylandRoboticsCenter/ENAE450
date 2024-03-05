@@ -1,5 +1,17 @@
 **Due date: EOD Thursday, Mar 7**
 
+**Submission guidelines:**
+
+* create two packages (one per problem): `hw3_1` and `hw3_2`
+* both packages should be in the same workspace
+* add `README.txt` file into the workspace folder (i.e. `src` and `README.txt` will be in the same folder)
+* archive `src` folder and `README.txt`
+    * use the following pattern to name the archive:\
+     `hw3_<LastName>_<FirstName>`
+    * terminal command to create archive:\
+    `tar -czf hw3_<LastName>_<FirstName>.tgz src/ README.txt`
+* submit the archive
+
 Note:
 * For an integer you can use the following topic message: UInt32 from std_msgs, i.e.: `from std_msgs.msg import UInt32`
 * For arrays of integers you can use the following topic message: UInt32MultiArray from std_msgs, i.e.: `from std_msgs.msg import UInt32MultiArray`
