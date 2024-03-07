@@ -95,6 +95,45 @@
     * `ros2 run <package_name> <executable_name>`
     
 
+# ROS2 workspace structure
+```
+<workspace_name> (e.g. ENAE450_ws)
+├── build                   # created by colcon
+├── install                 # created by colcon
+├── log                     # created by colcon
+├── src                     # created by user
+    ├── package_#1
+    ├── package_#2
+    ├── ...
+    └── package_#N
+```
+# ROS2 package structure 
+
+## Python
+from https://nu-msr.github.io/ros_notes/ros2/colcon.html
+```
+<pkg_name>/
+├── package.xml             # package manifest
+├── <pkg_name>/             # python package
+│   ├── __init__.py         # Marks this directory as a python package
+│   └── module.py           # A python module
+├── launch/                 # Launchfiles go here
+│   ├── file.launch.xml     # An xml launch file
+│   ├── file.launch.py      # A python launch file
+│   └── file.launch.yaml    # A yaml launch file
+├── config/                 # Configuration directory
+│   ├── parameters.yaml     # File storing parameters for some nodes
+│   └── view.rviz           # Saved rviz configuration
+├── resource/               # Used for registering packages in ament_index
+│   └── package_name        # Empty file used to register package with index
+├── setup.cfg               # Sets up installation directories for ROS
+├── setup.py                # Metadata, node entry , other files to install
+└── test/                   # Unit tests
+    ├── test_copyright.py   # ROS test to ensure proper copyright notice 
+    ├── test_flake8.py      # Uses flake8 to enforce code style 
+    └── test_pep257.py      # Ensures compliance with PEP 257
+```
+
 # ROS2 workflow
 
 1. New package
