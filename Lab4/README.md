@@ -2,14 +2,11 @@
 
 ## General overview
 
-The goal of this lab is to create custom ROS2 message and service, and to demonstrate useage of ROS2 parameters.
+The goal of this lab is to create custom ROS2 message and service.
 
 ## Useful links
 
 1. [Creating custom msg and srv files](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.html)
-2. [Understanding parameters](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.html)
-3. [Using parameters in a class (Python)](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.html)
-4. API docs for Parameters ([old](https://docs.ros2.org/foxy/api/rclpy/api/parameters.html), [new](https://docs.ros.org/en/iron/p/rclpy/rclpy.parameter.html))
 
 ## Steps
 
