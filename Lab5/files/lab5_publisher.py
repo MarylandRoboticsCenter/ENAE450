@@ -25,15 +25,12 @@ class DemoPublisher(Node):
         self.publisher_ = self.create_publisher(SingleArray, 'topic', 10)
         timer_period = 2  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
-        # self.i = 0
 
     def timer_callback(self):
         msg = SingleArray()
-        # msg.data = 'Hello World: %d' % self.i
         msg.data = [1, 2, 3]
         self.publisher_.publish(msg)
         # self.get_logger().info('Publishing: "%s"' % msg.data)
-        # self.i += 1
 
 
 def main(args=None):
