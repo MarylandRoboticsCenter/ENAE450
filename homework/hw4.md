@@ -41,8 +41,8 @@ Note:
         * Create the turtle_controller node, subscribe to /turtle1/pose. Create a control loop to reach a given target. A little bit of math will be required to find the distances and angles, and send the command to the /turtle1/cmd_vel topic.
         * Keep an array of alive turtles (name and coordinates) in the turtle_spawner node. Publish this array on the /alive_turtles topic. On the turtle_controller node, subscribe to the topic, get the array, and choose to select the first turtle in the array as the new target.
         * Create a service /catch_turtle in turtle_spawner. Once the turtle_controller has reached a turtle, it will send the name of the turtle to that service. From the turtle_spawner node, call the /kill service, remove the turtle from the array, and publish an updated array to /alive_turtles.
-        * Turtle can move at a constant velocity only forward (`linear.x=2`, `linear.y=0`). Angular velocity is limited too (`angular.z=1`)
+        * Turtle can move at a constant velocity and only forward, that is `linear.x=2`, `linear.y=0`. Maximum of angular velocity is limited, that is `max angular.z=1`.
     2. Bonus (40 points):
         * Improve the turtle_controller to select the closest turtle instead of the first turtle in the array.
-        * Add random turtles that act as obstacles and not goals
+        * Add random turtles that act as obstacles and not goals.
 
