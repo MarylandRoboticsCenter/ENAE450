@@ -2,7 +2,7 @@
 
 ## General overview
 
-The goal of this lab is to use ROS2 parameters custom message and service and .
+The goal of this lab is to demonstrate implementation of ROS2 parameters, custom messages and services.
 
 ## Useful links
 
@@ -23,7 +23,7 @@ The goal of this lab is to use ROS2 parameters custom message and service and .
 
 3. Open VS Code (or other IDE of choice) on your host PC and open `ENAE450_ws` folder
 
-8. From folder `Lab5/files` copy files `lab5_publisher`and `lab5_subscriber` into `ENAE450/ENAE450_ws/src/lab5_package/lab5_package` folder.
+8. From folder `Lab5/files` copy files `lab5_publisher.py`and `lab5_subscriber.py` into `ENAE450/ENAE450_ws/src/lab5_package/lab5_package` folder.
 
 9. **In VS Code** Edit `ENAE450/ENAE450_ws/src/lab5_package/setup.py` file and make sure *entry_points* has the following:
     ```
