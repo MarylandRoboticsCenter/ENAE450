@@ -24,7 +24,7 @@ The goal of this lab is to start ROS2 client and server services.
 
 6. Navigate into the `src` folder of your `ENAE450_ws` workspace and create *lab3* package:
     ```bash
-    ros2 pkg create --build-type ament_python lab3_package
+    ros2 pkg create --build-type ament_python lab3_package --dependencies rclpy
     ```
 
 7. Open VS Code (or other IDE of choice) on your host PC and open `ENAE450_ws` folder

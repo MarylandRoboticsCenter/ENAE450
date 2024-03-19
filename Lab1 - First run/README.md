@@ -6,6 +6,13 @@ The goal of this lab is to run a simple ROS2 code.
 
 **Volume Map**: Docker Containers are destroyed when you exit the container, which means all the data will be lost. Volume mapping is used to save the important data before destroying the container. A directory from host pc is mapped to a directory in the container. Changes made in the mapped directory in the docker container is reflected in the host pc. Save the important data in the mapped directory inside the container.
 
+## Useful links
+
+1. [Understanding nodes](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html)
+2. [Using colcon to build packages](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html)
+3. [Creating a workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
+4. [Creating a package](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)
+
 ## Steps
 
 **The commands given in each step below are meant to be entered in the terminal unless stated otherwise**.
@@ -75,7 +82,7 @@ The goal of this lab is to run a simple ROS2 code.
 
 6. Navigate into the `src` folder of your `ENAE450_ws` workspace and create *lab1* package:
     ```bash
-    ros2 pkg create --build-type ament_python lab1_package
+    ros2 pkg create --build-type ament_python lab1_package --dependencies rclpy
     ```
 
 7. Open VS Code (or other IDE of choice) on your host PC and open `ENAE450_ws` folder

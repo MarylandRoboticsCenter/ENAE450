@@ -14,6 +14,8 @@
 * Linux [terminal](https://linuxcommand.org/lc3_learning_the_shell.php), [cheat sheet](https://cheatography.com/davechild/cheat-sheets/linux-command-line/)
 * Linux file manager ([Midnight Commander](https://linuxcommand.org/lc3_adv_mc.php))
 * Tmux [cheat sheet](https://tmuxcheatsheet.com/)
+* [colcon](https://colcon.readthedocs.io/en/released/)
+* [Gazebo](https://gazebosim.org/docs)
 
 # ROS2 books
 
@@ -24,9 +26,71 @@
 
 * Nodes [1](https://docs.ros.org/en/humble/Concepts/Basic/About-Nodes.html), [2](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html)
 * Topics [1](https://docs.ros.org/en/humble/Concepts/Basic/About-Topics.html), [2](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)
+* [Interfaces](https://docs.ros.org/en/humble/Concepts/Basic/About-Interfaces.html)
 * Services [1](https://docs.ros.org/en/humble/Concepts/Basic/About-Services.html), [2](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.html)
 * Parameters [1](https://docs.ros.org/en/humble/Concepts/Basic/About-Parameters.html), [2](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.html)
 * Actions [1](https://docs.ros.org/en/humble/Concepts/Basic/About-Actions.html), [2](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.html)
+* Launch files [1](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html), [2](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-system.html)
+* tf2 [1](https://wiki.ros.org/tf2), [2](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.html)
+* [URDF](https://docs.ros.org/en/humble/Tutorials/Intermediate/URDF/URDF-Main.html)
+* [RViz](https://docs.ros.org/en/humble/Tutorials/Intermediate/RViz/RViz-User-Guide/RViz-User-Guide.html)
+
+# ROS2 workspace structure
+```
+<workspace_name> (e.g. ENAE450_ws)
+├── build                   # created by colcon
+├── install                 # created by colcon
+├── log                     # created by colcon
+├── src                     # created by user
+    ├── package_#1
+    ├── package_#2
+    ├── ...
+    └── package_#N
+```
+# ROS2 package structure 
+
+## Python
+from https://nu-msr.github.io/ros_notes/ros2/colcon.html
+```
+<pkg_name>/
+├── package.xml             # package manifest
+├── <pkg_name>/             # python package
+│   ├── __init__.py         # Marks this directory as a python package
+│   └── module.py           # A python module
+├── launch/                 # Launchfiles go here
+│   ├── file.launch.xml     # An xml launch file
+│   ├── file.launch.py      # A python launch file
+│   └── file.launch.yaml    # A yaml launch file
+├── config/                 # Configuration directory
+│   ├── parameters.yaml     # File storing parameters for some nodes
+│   └── view.rviz           # Saved rviz configuration
+├── resource/               # Used for registering packages in ament_index
+│   └── package_name        # Empty file used to register package with index
+├── setup.cfg               # Sets up installation directories for ROS
+├── setup.py                # Metadata, node entry , other files to install
+└── test/                   # Unit tests
+    ├── test_copyright.py   # ROS test to ensure proper copyright notice 
+    ├── test_flake8.py      # Uses flake8 to enforce code style 
+    └── test_pep257.py      # Ensures compliance with PEP 257
+```
+
+# ROS2 workflow
+
+1. New package
+    * create workspace (if not created)
+    * create package
+    * edit package metadata
+    * write code (divide into nodes)
+    * build package
+    * source package
+    * start node(s)
+
+2. Existing package
+    * edit code
+    * edit package metadata if needed
+    * build package
+    * source package
+    * start node(s)
 
 # Commonly used commands
 
@@ -94,63 +158,6 @@
     <br/><br/>
     * `ros2 run <package_name> <executable_name>`
     
-
-# ROS2 workspace structure
-```
-<workspace_name> (e.g. ENAE450_ws)
-├── build                   # created by colcon
-├── install                 # created by colcon
-├── log                     # created by colcon
-├── src                     # created by user
-    ├── package_#1
-    ├── package_#2
-    ├── ...
-    └── package_#N
-```
-# ROS2 package structure 
-
-## Python
-from https://nu-msr.github.io/ros_notes/ros2/colcon.html
-```
-<pkg_name>/
-├── package.xml             # package manifest
-├── <pkg_name>/             # python package
-│   ├── __init__.py         # Marks this directory as a python package
-│   └── module.py           # A python module
-├── launch/                 # Launchfiles go here
-│   ├── file.launch.xml     # An xml launch file
-│   ├── file.launch.py      # A python launch file
-│   └── file.launch.yaml    # A yaml launch file
-├── config/                 # Configuration directory
-│   ├── parameters.yaml     # File storing parameters for some nodes
-│   └── view.rviz           # Saved rviz configuration
-├── resource/               # Used for registering packages in ament_index
-│   └── package_name        # Empty file used to register package with index
-├── setup.cfg               # Sets up installation directories for ROS
-├── setup.py                # Metadata, node entry , other files to install
-└── test/                   # Unit tests
-    ├── test_copyright.py   # ROS test to ensure proper copyright notice 
-    ├── test_flake8.py      # Uses flake8 to enforce code style 
-    └── test_pep257.py      # Ensures compliance with PEP 257
-```
-
-# ROS2 workflow
-
-1. New package
-    * create workspace (if not created)
-    * create package
-    * edit package metadata
-    * write code (divide into nodes)
-    * build package
-    * source package
-    * start node(s)
-
-2. Existing package
-    * edit code
-    * edit package metadata if needed
-    * build package
-    * source package
-    * start node(s)
 
 # Shortcuts
 

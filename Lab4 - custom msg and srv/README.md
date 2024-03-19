@@ -16,7 +16,7 @@ The goal of this lab is to create custom ROS2 message and service.
 
 2. Navigate into the `src` folder of your `ENAE450_ws` workspace and create new package:
     ```bash
-    ros2 pkg create --build-type ament_cmake interface_package
+    ros2 pkg create --build-type ament_cmake interface_package --dependencies rclcpp
     ```
 
 3. Create `msg` and `srv` folders in the new package (in `ENAE450/ENAE450_ws/src/interface_package`)

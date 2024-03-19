@@ -18,7 +18,7 @@ The goal of this lab is to demonstrate implementation of ROS2 parameters, custom
 
 2. Navigate into the `src` folder of your `ENAE450_ws` workspace and create new package:
     ```bash
-    ros2 pkg create --build-type ament_python lab5_package
+    ros2 pkg create --build-type ament_python lab5_package --dependencies rclpy
     ```
 
 3. Open VS Code (or other IDE of choice) on your host PC and open `ENAE450_ws` folder
