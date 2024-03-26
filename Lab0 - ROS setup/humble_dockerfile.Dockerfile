@@ -75,16 +75,41 @@ RUN sudo apt-get update && sudo apt-get install -y \
 
 RUN pip3 install setuptools==58.2.0
 
-# Setup ROS workspace directory
+# Install TB3 ROS packages
+RUN sudo apt-get update && sudo apt-get install -y \
+    ros-humble-gazebo-* \
+    ros-humble-cartographer \
+    ros-humble-cartographer-ros \
+    ros-humble-navigation2 \
+    ros-humble-nav2-bringup \
+	ros-humble-dynamixel-sdk \
+	ros-humble-turtlebot3-msgs \
+	ros-humble-turtlebot3 && \
+    sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
+
+
+# Set up TB3 workspace
 RUN source /opt/ros/humble/setup.bash && \
-    mkdir -p $HOME/ENAE450_ws/src
+	mkdir -p $HOME/tb3_ws/src && \
+    cd $HOME/tb3_ws/src && \
+    git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git && \
+    cd $HOME/tb3_ws && \
+	colcon build --symlink-install
+
+
+# Setup ROS workspace directory
+RUN mkdir -p $HOME/ENAE450_ws/src    
+
 
 # Set up working directory and bashrc
 WORKDIR ${HOME}/ENAE450_ws/
 RUN echo 'source /opt/ros/humble/setup.bash' >> $HOME/.bashrc && \
     echo 'source /usr/share/colcon_cd/function/colcon_cd.sh' >> $HOME/.bashrc && \
     echo 'source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash' >> $HOME/.bashrc && \
-    echo 'export ROS_DOMAIN_ID=1' >> ~/.bashrc && \
-    echo 'export ROS_LOCALHOST_ONLY=1' >> ~/.bashrc
+    echo 'export ROS_DOMAIN_ID=1' >> $HOME/.bashrc && \
+    echo 'export ROS_LOCALHOST_ONLY=1' >> $HOME/.bashrc && \
+    echo 'export TURTLEBOT3_MODEL=waffle_pi' >> $HOME/.bashrc && \
+    echo '#source $HOME/tb3_ws/install/setup.bash' >> $HOME/.bashrc && \
+    echo '#source /usr/share/gazebo/setup.bash' >> $HOME/.bashrc
     
 CMD /bin/bash

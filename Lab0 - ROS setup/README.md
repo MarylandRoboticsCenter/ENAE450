@@ -126,6 +126,21 @@ It doesn't matter if you launching Ubuntu using dual booting, or single booting,
     pip3 install setuptools==58.2.0
     ```
 
+5. Install TB3 ROS packages
+    ```bash
+    sudo apt-get install -y ros-humble-gazebo-* ros-humble-cartographer ros-humble-cartographer-ros ros-humble-navigation2  ros-humble-nav2-bringup ros-humble-dynamixel-sdk ros-humble-turtlebot3-msgs ros-humble-turtlebot3
+    ```
+
+5. Set up TB3 workspace
+    ```bash
+    source /opt/ros/humble/setup.bash
+    mkdir -p $HOME/tb3_ws/src
+    cd $HOME/tb3_ws/src
+    git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+    cd $HOME/tb3_ws
+    colcon build --symlink-install
+    ```
+
 5. Source your ROS2 installation and `colcon` autocomplete
     ```bash
     echo 'source /opt/ros/humble/setup.bash' >> $HOME/.bashrc
@@ -133,6 +148,9 @@ It doesn't matter if you launching Ubuntu using dual booting, or single booting,
     echo 'source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash' >> $HOME/.bashrc
     echo 'export ROS_DOMAIN_ID=1' >> ~/.bashrc
     echo 'export ROS_LOCALHOST_ONLY=1' >> ~/.bashrc
+    echo 'export TURTLEBOT3_MODEL=waffle_pi' >> $HOME/.bashrc
+    echo '#source $HOME/tb3_ws/install/setup.bash' >> $HOME/.bashrc
+    echo '#source /usr/share/gazebo/setup.bash' >> $HOME/.bashrc
     ```
 
 4. (Optionally but recommended) Download tmux config file
