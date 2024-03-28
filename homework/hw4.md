@@ -35,7 +35,9 @@
 
 3. Turtlesim: Turtle following
     1. Create a launch file that opens up turtlesim with a single turtle. Then, spawn new turtles, which the original turtle will go to. Once it reaches the spawned turtle, that turtle will disappear (40 points)
-        * create the turtle_controller node, subscribe to /turtle1/pose. Create a control loop to reach a given target. A little bit of math will be required to find the distances and angles, and send the command to the /turtle1/cmd_vel topic
+        * spawn several targets initially (2-4) and have a timer that spawns new goal turtles. The timer period is a parameter, set the initial value yourself.
+        * create the turtle_controller node, subscribe to /turtle1/pose. Create a control loop to reach a given target. A little bit of math will be required to find the distances and angles, and send the 
+        command to the /turtle1/cmd_vel topic
         * keep an array of alive turtles (name and coordinates) in the turtle_spawner node. Publish this array on the /alive_turtles topic. On the turtle_controller node, subscribe to the topic, get the array, and choose to select the first turtle in the array as the new target
         * create a service /catch_turtle in turtle_spawner. Once the turtle_controller has reached a turtle, it will send the name of the turtle to that service. From the turtle_spawner node, call the /kill service, remove the turtle from the array, and publish an updated array to /alive_turtles
         * turtle can only move forward at a constant velocity, that is `linear.x=1`, `linear.y=0`. Maximum of angular velocity is limited, that is `max angular.z=1`
@@ -45,4 +47,5 @@
         * improve the turtle_controller to select the closest turtle instead of the first turtle in the array
     4. Bonus (30 points):
         * add random turtles that act as obstacles and not goals
+        * make number of spawned obstacle turtles a parameter. Set the value of the parameter in the launch file.
 
