@@ -25,7 +25,6 @@ Note:
         * Subscribe to the topics `topic_1` and `topic_2`
         * For each incoming message **of the same serial number**, merge the lists of numbers and sort the result
         * Print to the console the serial number of the message (on one line) and the merged and sorted list of numbers ((on next line)) 
-        * Bonus 5 points: 
     3. Bonus (5 points):
         * Subscriber node publishes topic `topic_3` with the merged and sorted list (append the serial number of the message to the beginning)
     4. Bonus (10 points):
