@@ -73,6 +73,9 @@ RUN sudo apt-get update && sudo apt-get install -y \
     python3-pip && \
     sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
+RUN pip install -U $(pip list --outdated | grep colcon | awk '{printf $1" "}')
+
+# upgrading colcon package to fix symlink issues
 RUN pip3 install setuptools==58.2.0
 
 # Install TB3 ROS packages
