@@ -1,0 +1,4 @@
+int32 msg_num
+int32 int_search
+---
+bool result
