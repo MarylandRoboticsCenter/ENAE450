@@ -6,9 +6,8 @@ The goal of this lab is to introduce Gazebo robot simulator, describe URDF forma
 
 ## Useful links
 
-1. [Using turtlesim](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
-2. [Creating a launch file](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
-3. [Integrating launch files into ROS 2 packages](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-system.html)
+1. [Concept of transforms (TF) in ROS](https://articulatedrobotics.xyz/ready-for-ros-6-tf/)
+2. [Summary of TF in ROS2](https://nu-msr.github.io/ros_notes/ros2/tf.html)
 
 ## Steps
 
