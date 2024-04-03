@@ -99,10 +99,19 @@ RUN source /opt/ros/humble/setup.bash && \
     cd $HOME/tb3_ws && \
 	colcon build --symlink-install
 
+# Set up navigation demo
+RUN sudo apt-get update && sudo apt-get install -y \
+    ros-humble-robot-localization && \
+    sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
+RUN mkdir -p $HOME/nav_ws/src    
 
 # Setup ROS workspace directory
-RUN mkdir -p $HOME/ENAE450_ws/src    
-
+RUN source /opt/ros/humble/setup.bash && \ 
+    mkdir -p $HOME/ENAE450_ws/src && \
+    cd $HOME/nav_ws/src && \
+    git clone https://github.com/ros-planning/navigation2_tutorials && \
+    cd $HOME/nav_ws && \
+    colcon build --symlink-install --packages-select sam_bot_description
 
 # Set up working directory and bashrc
 WORKDIR ${HOME}/ENAE450_ws/
@@ -113,6 +122,7 @@ RUN echo 'source /opt/ros/humble/setup.bash' >> $HOME/.bashrc && \
     echo 'export ROS_LOCALHOST_ONLY=1' >> $HOME/.bashrc && \
     echo 'export TURTLEBOT3_MODEL=waffle_pi' >> $HOME/.bashrc && \
     echo '#source $HOME/tb3_ws/install/setup.bash' >> $HOME/.bashrc && \
-    echo '#source /usr/share/gazebo/setup.bash' >> $HOME/.bashrc
+    echo '#source /usr/share/gazebo/setup.bash' >> $HOME/.bashrc && \
+    echo '#source $HOME/nav_ws/install/setup.bash' >> $HOME/.bashrc 
     
 CMD /bin/bash
