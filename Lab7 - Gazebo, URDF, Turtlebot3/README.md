@@ -99,4 +99,8 @@ The goal of this lab is to introduce Gazebo robot simulator, describe URDF forma
      ```bash
     ros2 launch turtlebot3_gazebo empty_world.launch.py
     ```
+    In another pane start RViz tool
+     ```bash
+    ros2 launch turtlebot3_bringup rviz2.launch.py
+    ```
     Repeat investigation steps for the Turtlebot3 robot. What are the differences in this simulation?
