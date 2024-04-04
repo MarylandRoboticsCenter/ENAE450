@@ -84,10 +84,7 @@ RUN sudo apt-get update && sudo apt-get install -y \
     ros-humble-cartographer \
     ros-humble-cartographer-ros \
     ros-humble-navigation2 \
-    ros-humble-nav2-bringup \
-	ros-humble-dynamixel-sdk \
-	ros-humble-turtlebot3-msgs \
-	ros-humble-turtlebot3 && \
+    ros-humble-nav2-bringup && \
     sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
 
@@ -96,6 +93,9 @@ RUN source /opt/ros/humble/setup.bash && \
 	mkdir -p $HOME/tb3_ws/src && \
     cd $HOME/tb3_ws/src && \
     git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git && \
+    git clone -b humble-devel https://github.com/ROBOTIS-GIT/DynamixelSDK.git && \
+    git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git && \
+    git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3.git && \
     cd $HOME/tb3_ws && \
 	colcon build --symlink-install
 
