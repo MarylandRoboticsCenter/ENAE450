@@ -97,7 +97,7 @@ RUN source /opt/ros/humble/setup.bash && \
     git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git && \
     git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3.git && \
     cd $HOME/tb3_ws && \
-	colcon build --symlink-install
+	colcon build --symlink-install --executor sequential
 
 # Set up navigation demo
 RUN sudo apt-get update && sudo apt-get install -y \
