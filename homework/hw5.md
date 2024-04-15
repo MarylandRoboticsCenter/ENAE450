@@ -11,17 +11,26 @@
     * terminal command to create archive:\
     `tar -czf hw5_<LastName>_<FirstName>.tgz src/ README.txt`
 * submit the archive
+* submit the videos along with archive
+
 
 **Style guidelines:**
 * Make sure your code is commented, neat, and variable names make sense. 
 * Consult the Python style guide https://peps.python.org/pep-0008/ as well as the ROS2 style guide: https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Code-Style-Language-Versions.html#python. 
 
-1. Turtlebot 3: SLAM 
-    1.  (15 points)
-        * the shapes should be located in different quadrants of the sqreen
-        * there should be no connecting lines between the shapes
-    2. Bonus (10 points):
-        * use a launch file to spawn four turtles that each draw one geometric shape at the same time 
+1. SLAM video recording
+    1. Use Gazebo simulation of [Turtlebot 3](https://emanual.robotis.com/docs/en/platform/turtlebot3/slam_simulation/) to generate and save a map of TurtleBot3 House demo (15 points)
+        * record a video of the process starting with launching ROS2 nodes in the terminal
+        * video recording has to have good enough quality so that the terminal commands are legible. Preferably use screen grabbing software
+    2. Use Gazebo simulation of [Turtlebot 3](https://emanual.robotis.com/docs/en/platform/turtlebot3/nav_simulation/) and the generated map to do the localization demo:
+        * perform initial pose estimation
+        * manually drive around until the pose estimation converges to a small area under the Turtlebot
+        * set Navigation Goal to generate a path and automatically follow it
+        * record a video of the process starting with launching ROS2 nodes in the terminal
+    3. Bonus (XX points): use the following materials to write an explanation of how the SLAM alorithm in the demo works
+        * [ROSCon 2019 Macau: On Use of SLAM Toolbox](https://vimeo.com/378682207)
+        * [Understanding the Particle Filter](https://www.youtube.com/watch?v=NrzmH_yerBU)
+        * [Understanding the Particle Filter](https://www.youtube.com/watch?v=NrzmH_yerBU)
 
 2. Turtlesim: Trajectory following
     1. Use one turtle to follow these trajectories sequentially: straight line (`y = k*x`), qubic function (`y = k*x^3`), and sine function (`y = k*sin(w*x)`) (20 points)
