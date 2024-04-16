@@ -19,42 +19,37 @@
 * Consult the Python style guide https://peps.python.org/pep-0008/ as well as the ROS2 style guide: https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Code-Style-Language-Versions.html#python. 
 
 1. SLAM video recording
-    1. Use Gazebo simulation of [Turtlebot 3](https://emanual.robotis.com/docs/en/platform/turtlebot3/slam_simulation/) to generate and save a map of TurtleBot3 House demo (15 points)
+    1. Use Gazebo simulation of [Turtlebot 3](https://emanual.robotis.com/docs/en/platform/turtlebot3/slam_simulation/) to generate and save a map of TurtleBot3 House demo (10 points)
         * record a video of the process starting with launching ROS2 nodes in the terminal
         * video recording has to have good enough quality so that the terminal commands are legible. Preferably use screen grabbing software
-    2. Use Gazebo simulation of [Turtlebot 3](https://emanual.robotis.com/docs/en/platform/turtlebot3/nav_simulation/) and the generated map to do the localization demo:
+    2. Use Gazebo simulation of [Turtlebot 3](https://emanual.robotis.com/docs/en/platform/turtlebot3/nav_simulation/) and the generated map to do the localization demo (10 points)
         * perform initial pose estimation
         * manually drive around until the pose estimation converges to a small area under the Turtlebot
         * set Navigation Goal to generate a path and automatically follow it
         * record a video of the process starting with launching ROS2 nodes in the terminal
-    3. Bonus (XX points): use the following materials to write an explanation of how the SLAM alorithm in the demo works
+    3. Bonus (15 points): use the following (and any additional) materials to write an explanation of how the SLAM alorithm in the demo works
+        * [(SLAM)-An Overview](https://www.jastt.org/index.php/jasttpath/article/view/117/37)
         * [ROSCon 2019 Macau: On Use of SLAM Toolbox](https://vimeo.com/378682207)
         * [Understanding the Particle Filter](https://www.youtube.com/watch?v=NrzmH_yerBU)
-        * [Understanding the Particle Filter](https://www.youtube.com/watch?v=NrzmH_yerBU)
+        * [Understanding SLAM Using Pose Graph Optimization](https://www.youtube.com/watch?v=saVZtgPyyJQ)
+        * [Why SLAM Matters](https://www.mathworks.com/discovery/slam.html#:~:text=SLAM%20(simultaneous%20localization%20and%20mapping)%20is%20a%20method%20used%20for,to%20map%20out%20unknown%20environments.)
 
-2. Turtlesim: Trajectory following
-    1. Use one turtle to follow these trajectories sequentially: straight line (`y = k*x`), qubic function (`y = k*x^3`), and sine function (`y = k*sin(w*x)`) (20 points)
-        * assume coord system origin is in the center of the turtlesim window
-        * turtle should start at the left of the screen and go to the right
-        * when reaching the end of the screen turtle should respawn on the left and start drawing the next function. Screen should be wiped between each function
-        * assume `k = 1`, `w = 1`
-    2. Bonus (10 points):
-        * make `k` and `w` parameters.
-        * add service (`func_sel`) that selects which function the turtle follows
+2. Turtbot: Inside wall following (25 points)
+    1. Write ROS code to control Gazebo simulation of Turtlebot3 in a way that it is driving on the inside perimeter of rectangular enclosure
+        * use hw5 package (in `homework` folder) and `tb3_4walls_inside.launch.py` launch file to start the Gazebo simulation
+        * use lidar data (`scan` topic) to obtain measurement of the distance to the walls
+        * drive TB3 to a distance of `0.5m` from the wall, turn right and continue moving clockwise following the wall at the same distance
+    2. CHEATING (-10 points):
+        * obtain `pose` estimation by subscribing to `tf` or `odom` topics or using any other methods
+    3. Bonus (7 points):
+        * implement two parameters (initiate them in the `launch` file) to set travel distance from the wall and clockwise/counterclockwise movement
 
-3. Turtlesim: Turtle following
-    1. Create a launch file that opens up turtlesim with a single turtle. Then, spawn new turtles, which the original turtle will go to. Once it reaches the spawned turtle, that turtle will disappear (40 points)
-        * spawn several targets initially (2-4) and have a timer that spawns new goal turtles. The timer period is a parameter, set the initial value yourself.
-        * create the turtle_controller node, subscribe to /turtle1/pose. Create a control loop to reach a given target. A little bit of math will be required to find the distances and angles, and send the 
-        command to the /turtle1/cmd_vel topic
-        * keep an array of alive turtles (name and coordinates) in the turtle_spawner node. Publish this array on the /alive_turtles topic. On the turtle_controller node, subscribe to the topic, get the array, and choose to select the first turtle in the array as the new target
-        * create a service /catch_turtle in turtle_spawner. Once the turtle_controller has reached a turtle, it will send the name of the turtle to that service. From the turtle_spawner node, call the /kill service, remove the turtle from the array, and publish an updated array to /alive_turtles
-        * turtle can only move forward at a constant velocity, that is `linear.x=1`, `linear.y=0`. Maximum of angular velocity is limited, that is `max angular.z=1`
-    2. Bonus (5 points):
-        * add an option of respawning the turtle in the middle if it hits any of the walls
-    3. Bonus (10 points):
-        * improve the turtle_controller to select the closest turtle instead of the first turtle in the array
-    4. Bonus (30 points):
-        * add random turtles that act as obstacles and not goals
-        * make number of spawned obstacle turtles a parameter. Set the value of the parameter in the launch file.
+3. (Bonus problem) Turtbot: Outside wall following (20 points)
+    1. Write ROS code to control Gazebo simulation of Turtlebot3 in a way that it is driving on the inside perimeter of rectangular enclosure
+        * use hw5 package (in `homework` folder) and `tb3_4walls_outside.launch.py` launch file to start the Gazebo simulation
+        * use lidar data (`scan` topic) to obtain measurement of the distance to the walls
+        * drive TB3 to a distance of `0.5m` from the wall, turn right and continue moving clockwise following the wall at the same distance
+        
+    2. CHEATING (don't do it):
+        * obtain `pose` estimation by subscribing to `tf` or `odom` topics or using any other methods
 
