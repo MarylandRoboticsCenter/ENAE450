@@ -46,7 +46,7 @@
         * implement two parameters (initiate them in the `launch` file) to set travel distance from the wall and clockwise/counterclockwise movement
 
 3. (Bonus problem) Turtbot: Outside wall following (20 points)
-    1. Write ROS code to control Gazebo simulation of Turtlebot3 in a way that it is driving on the inside perimeter of rectangular enclosure
+    1. Write ROS code to control Gazebo simulation of Turtlebot3 in a way that it is driving on the outside perimeter of rectangular enclosure
         * use `hw5` package (in `homework` folder) and `tb3_4walls_outside.launch.py` launch file to start the Gazebo simulation
         * use lidar data (`scan` topic) to obtain measurement of the distance to the walls
         * drive TB3 to a distance of `0.5m` from the wall, turn right and continue moving clockwise following the wall at the same distance
