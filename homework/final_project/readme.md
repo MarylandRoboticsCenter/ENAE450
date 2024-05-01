@@ -12,13 +12,20 @@ The goal of this project is to implement an algorithm in ROS2 system to autonomo
 
 2. Maze Challenge: Hardware
     1. create new package and name it `maze_hardware`
-    2. tests will be conducted in the RAL lab (3119 IDEA Factory)
-    3. the competition run
+    2. the robot starts in the furtherst corner of the maze with random orientation
+    3. tests will be conducted in the RAL lab (3119 IDEA Factory)
+    4. the competition run
         * will be conducted on either Friday, May 17 if the majority of students are available. If not, it will be conducted on Friday, May 10
         * each group will have 3 attempts to successfully complete the maze. Each attempt will be timed, only the best time from these will be used
         * the robot completes the maze when it fully exits it, at this point the timer stops
         * hitting the walls disqualifies the attempt
         * groups should record the video of their competition runs
+
+3. Bonus Maze Challenge: Hardware only (extra points)
+    1. the robot starts on the outside wall of the maze
+    2. the first goal of the robot is to find entrance to the maze and drive into it
+    3. the second goal of the robot is to find a marker in the maze, drive in front of it and make a 360 degree turn
+    4. hitting the walls disqualifies the attempt
 
 **What to submit:**
 
@@ -41,7 +48,7 @@ Include any figures or snippets of code that will help to explain your process. 
 
 **Final presentation:**
 
-The final presentation can be considered a “walk-through” of your work. All members must present, but you do not need to be “on camera.” Your team does not even need to be in the same place when this happens. You can divide who does what section, and then edit together. You can show slides, or show your computer screen, talk on camera, or some combination of these. Aim for 15-20 minutes, although you can go longer if you need to. 
+The final presentation can be considered a “walk-through” of your work. All members must present, but you do not need to be “on camera.” Your team does not even need to be in the same place when this happens. You can divide who does what section, and then edit together. You can show slides, or show your computer screen, talk on camera, or some combination of these. Aim for 10-15 minutes, although you can go longer if you need to. 
 
 Your presentation must include:
 * Introductions (team members and what each one did)
