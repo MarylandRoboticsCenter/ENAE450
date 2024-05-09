@@ -34,7 +34,6 @@ The goal of this project is to implement an algorithm in ROS2 system to autonomo
 3. video of `maze_2` Gazebo completion. The time of completion
 4. video of best competition run. The time of completion
 5. PDF of final report
-6. video of final presentation (and slides if applicable)
 
 **Final report:**
 
@@ -46,13 +45,3 @@ The final report is meant for you to showcase everything you’ve learned this s
 * Team members and how the work was divided (aka who did what)
 Include any figures or snippets of code that will help to explain your process. Remember to include captions and labels. 
 
-**Final presentation:**
-
-The final presentation can be considered a “walk-through” of your work. All members must present, but you do not need to be “on camera.” Your team does not even need to be in the same place when this happens. You can divide who does what section, and then edit together. You can show slides, or show your computer screen, talk on camera, or some combination of these. Aim for 10-15 minutes, although you can go longer if you need to. 
-
-Your presentation must include:
-* Introductions (team members and what each one did)
-* Simulation: walk-through of code, discussion of your results
-* Hardware: walk-through of code, discussion of your results
-* Retrospective
-You may include anything else that may be relevant. 
